@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LIVE FOLLOWERS INCREASE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+-webkit-tap-highlight-color:transparent;
+}
+
+body{
+background:#070710;
+overflow-x:hidden;
+color:white;
+min-height:100vh;
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+/* BACKGROUND */
+
+.bg1,.bg2,.bg3{
+position:fixed;
+border-radius:50%;
+filter:blur(120px);
+z-index:-1;
+animation:float 10s infinite alternate ease-in-out;
+}
+
+.bg1{
+width:350px;
+height:350px;
+background:#ff00aa;
+top:-120px;
+left:-100px;
+}
+
+.bg2{
+width:320px;
+height:320px;
+background:#00e1ff;
+bottom:-120px;
+right:-100px;
+animation-delay:2s;
+}
+
+.bg3{
+width:220px;
+height:220px;
+background:#7b00ff;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+animation-delay:4s;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0px) translateX(0px);
+}
+100%{
+transform:translateY(40px) translateX(20px);
+}
+}
+
+/* CONTAINER */
+
+.container{
+width:100%;
+max-width:520px;
+padding:35px 22px;
+border-radius:30px;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.12);
+backdrop-filter:blur(18px);
+box-shadow:
+0 0 25px rgba(255,0,170,0.15),
+0 0 40px rgba(0,225,255,0.08);
+}
+
+/* LOGO */
+
+.logo-box{
+display:flex;
+justify-content:center;
+margin-bottom:18px;
+}
+
+.logo{
+width:100px;
+height:100px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid rgba(255,255,255,0.2);
+box-shadow:
+0 0 25px rgba(255,0,170,0.4),
+0 0 35px rgba(0,225,255,0.3);
+animation:pulse 3s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
+}
+
+/* TITLE */
+
+.title{
+text-align:center;
+font-size:30px;
+font-weight:700;
+margin-bottom:10px;
+background:linear-gradient(90deg,#fff,#ddd);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+text-align:center;
+font-size:14px;
+color:#ccc;
+margin-bottom:22px;
+}
+
+.free-box{
+padding:15px;
+border-radius:18px;
+text-align:center;
+font-weight:600;
+background:linear-gradient(90deg,#ff00aa,#7b00ff);
+margin-bottom:22px;
+}
+
+/* SECTION */
+
+.section-title{
+font-size:20px;
+font-weight:700;
+margin-bottom:15px;
+text-align:center;
+}
+
+/* CARDS */
+
+.price-list{
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-bottom:25px;
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+padding:15px;
+border-radius:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.card:hover{
+transform:scale(1.02);
+background:rgba(255,255,255,0.12);
+}
+
+.card.selected{
+border:1px solid #00ffbf;
+background:rgba(0,255,191,0.12);
+box-shadow:0 0 20px rgba(0,255,191,0.25);
+}
+
+.card-left{
+font-size:15px;
+font-weight:600;
+}
+
+.card-right{
+font-size:15px;
+font-weight:700;
+color:#00ffbf;
+}
+
+/* INPUTS */
+
+.input-box{
+margin-bottom:18px;
+}
+
+.input-box input,
+.input-box textarea{
+width:100%;
+padding:16px;
+border:none;
+outline:none;
+border-radius:18px;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.08);
+font-size:15px;
+color:white;
+transition:0.3s;
+}
+
+.input-box input::placeholder,
+.input-box textarea::placeholder{
+color:#ccc;
+}
+
+.input-box input:focus,
+.input-box textarea:focus{
+transform:scale(1.02);
+border:1px solid #00e1ff;
+box-shadow:0 0 20px rgba(0,225,255,0.25);
+}
+
+textarea{
+resize:none;
+height:100px;
+}
+
+/* ACTION BUTTONS */
+
+.action-buttons{
+display:flex;
+gap:12px;
+margin-bottom:18px;
+}
+
+.action-btn{
+flex:1;
+padding:14px;
+border:none;
+border-radius:16px;
+background:rgba(255,255,255,0.08);
+color:white;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.action-btn.active{
+background:linear-gradient(90deg,#ff00aa,#00e1ff);
+box-shadow:0 0 20px rgba(0,225,255,0.25);
+}
+
+/* SUBMIT BUTTON */
+
+.submit-btn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:18px;
+font-size:17px;
+font-weight:700;
+cursor:pointer;
+color:white;
+background:linear-gradient(90deg,#ff00aa,#7b00ff,#00e1ff);
+background-size:300% 300%;
+animation:move 5s infinite;
+transition:0.3s;
+}
+
+.submit-btn:hover{
+transform:translateY(-3px);
+}
+
+.submit-btn:active{
+transform:scale(0.95);
+}
+
+@keyframes move{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* INSTAGRAM BUTTONS */
+
+.insta-buttons{
+display:flex;
+gap:10px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.insta-btn{
+flex:1;
+text-align:center;
+padding:14px;
+border-radius:16px;
+text-decoration:none;
+font-weight:600;
+color:white;
+background:linear-gradient(90deg,#ff00aa,#7b00ff);
+transition:0.3s;
+}
+
+.insta-btn:hover{
+transform:translateY(-3px);
+}
+
+/* SUCCESS */
+
+.success{
+display:none;
+margin-top:18px;
+padding:15px;
+border-radius:15px;
+background:rgba(0,255,140,0.12);
+border:1px solid rgba(0,255,140,0.3);
+text-align:center;
+font-weight:600;
+color:#8effc1;
+line-height:1.8;
+}
+
+/* FOOTER */
+
+.footer{
+margin-top:20px;
+text-align:center;
+font-size:13px;
+color:#ccc;
+line-height:1.8;
+}
+
+@media(max-width:480px){
+
+.container{
+padding:28px 16px;
+}
+
+.title{
+font-size:25px;
+}
+
+.action-buttons{
+flex-direction:column;
+}
+
+.insta-buttons{
+flex-direction:column;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg1"></div>
+<div class="bg2"></div>
+<div class="bg3"></div>
+
+<div class="container">
+
+<div class="logo-box">
+<img src="logofollow.png" class="logo">
+</div>
+
+<div class="title">
+LIVE FOLLOWERS INCREASE
+</div>
+
+<div class="subtitle">
+Instagram Followers Growth Platform
+</div>
+
+<div class="free-box">
+🎉 New coustomer = 100 Free Followers Giveaway!
+</div>
+
+<!-- FOLLOWERS -->
+
+<div class="section-title">
+📱 Followers Price List 💸
+</div>
+
+<div class="price-list">
+
+<div class="card" data-type="Followers" data-item="100 Followers" data-price="40">
+<div class="card-left">👥 100 Followers</div>
+<div class="card-right">₹40 🔥</div>
+</div>
+
+<div class="card" data-type="Followers" data-item="200 Followers" data-price="80">
+<div class="card-left">👥 200 Followers</div>
+<div class="card-right">₹80 💯</div>
+</div>
+
+<div class="card" data-type="Followers" data-item="300 Followers" data-price="120">
+<div class="card-left">👥 300 Followers</div>
+<div class="card-right">₹120 🚀</div>
+</div>
+
+<div class="card" data-type="Followers" data-item="400 Followers" data-price="160">
+<div class="card-left">👥 400 Followers</div>
+<div class="card-right">₹160 ⭐</div>
+</div>
+
+<div class="card" data-type="Followers" data-item="500 Followers" data-price="200">
+<div class="card-left">👥 500 Followers</div>
+<div class="card-right">₹200 🎯</div>
+</div>
+
+</div>
+
+<!-- LIKES -->
+
+<div class="section-title">
+❤️ Likes Price List
+</div>
+
+<div class="price-list">
+
+<div class="card" data-type="Likes" data-item="100 Likes" data-price="30">
+<div class="card-left">❤️ 100 Likes</div>
+<div class="card-right">₹30</div>
+</div>
+
+<div class="card" data-type="Likes" data-item="200 Likes" data-price="60">
+<div class="card-left">❤️ 200 Likes</div>
+<div class="card-right">₹60</div>
+</div>
+
+<div class="card" data-type="Likes" data-item="400 Likes" data-price="120">
+<div class="card-left">❤️ 400 Likes</div>
+<div class="card-right">₹120</div>
+</div>
+
+<div class="card" data-type="Likes" data-item="500 Likes" data-price="150">
+<div class="card-left">❤️ 500 Likes</div>
+<div class="card-right">₹150</div>
+</div>
+
+</div>
+
+<form id="userForm">
+
+<div class="input-box">
+<input type="text" id="name" placeholder="Enter Your Name" required>
+</div>
+
+<div class="input-box">
+<input 
+type="tel"
+id="phone"
+placeholder="Enter 10 Digit Mobile Number"
+maxlength="10"
+required
+>
+</div>
+
+<div class="input-box">
+<input type="text" id="username" placeholder="Instagram Username" required>
+</div>
+
+<div class="input-box">
+<input type="url" id="postLink" placeholder="Paste Post / Reel Link">
+</div>
+
+<div class="action-buttons">
+
+<button type="button" class="action-btn active" id="likeBtn">
+❤️ Like
+</button>
+
+<button type="button" class="action-btn" id="commentBtn">
+💬 Comment
+</button>
+
+</div>
+
+<div class="input-box" id="commentBox" style="display:none;">
+
+<input 
+type="number"
+id="commentCount"
+placeholder="Enter Comment Count (10-50)"
+min="10"
+max="50"
+>
+
+</div>
+
+<div class="input-box">
+<textarea id="request" placeholder="Extra Request"></textarea>
+</div>
+
+<button type="submit" class="submit-btn" id="submitBtn">
+🚀 SUBMIT ORDER
+</button>
+
+</form>
+
+<div class="success" id="successMsg"></div>
+
+<div class="insta-buttons">
+
+<a href="https://instagram.com/k._.dharani_vel_8" target="_blank" class="insta-btn">
+✨ Fast Delivery
+</a>
+
+<a href="https://instagram.com/k._.dharani_vel_8" target="_blank" class="insta-btn">
+✅ Real Followers
+</a>
+
+<a href="https://instagram.com/k._.dharani_vel_8" target="_blank" class="insta-btn">
+📩 DM for Order
+</a>
+
+</div>
+
+<div class="footer">
+Created By K.Dharanivel
+</div>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* FIREBASE */
+
+const firebaseConfig = {
+
+apiKey: "AlzaSyChlGtBCjdUDL6zfcOmMZVGn88gQFi-gdY",
+
+authDomain: "live-followers-a9489.firebaseapp.com",
+
+projectId: "live-followers-a9489",
+
+storageBucket: "live-followers-a9489.firebasestorage.app",
+
+messagingSenderId: "460315824247",
+
+appId: "1:460315824247:web:8432b3b99e9fb0f098b672"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+/* AUTO CLEAR */
+
+window.onload=()=>{
+
+document.getElementById("userForm").reset();
+
+};
+
+/* MULTI SELECT */
+
+let selectedItems=[];
+
+const cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+card.addEventListener("click",()=>{
+
+card.classList.toggle("selected");
+
+const item={
+type:card.dataset.type,
+item:card.dataset.item,
+price:card.dataset.price
+};
+
+const exists=selectedItems.find(i=>i.item===item.item);
+
+if(exists){
+
+selectedItems=selectedItems.filter(i=>i.item!==item.item);
+
+}else{
+
+selectedItems.push(item);
+
+}
+
+});
+
+});
+
+/* LIKE COMMENT */
+
+let selectedAction="Like";
+
+const likeBtn=document.getElementById("likeBtn");
+
+const commentBtn=document.getElementById("commentBtn");
+
+const commentBox=document.getElementById("commentBox");
+
+likeBtn.addEventListener("click",()=>{
+
+selectedAction="Like";
+
+likeBtn.classList.add("active");
+
+commentBtn.classList.remove("active");
+
+commentBox.style.display="none";
+
+});
+
+commentBtn.addEventListener("click",()=>{
+
+selectedAction="Comment";
+
+commentBtn.classList.add("active");
+
+likeBtn.classList.remove("active");
+
+commentBox.style.display="block";
+
+});
+
+/* PHONE NUMBER */
+
+const phoneInput=document.getElementById("phone");
+
+phoneInput.addEventListener("input",()=>{
+
+phoneInput.value=phoneInput.value.replace(/\D/g,'');
+
+if(phoneInput.value.length > 10){
+
+phoneInput.value=phoneInput.value.slice(0,10);
+
+}
+
+});
+
+/* FORM */
+
+const form=document.getElementById("userForm");
+
+const success=document.getElementById("successMsg");
+
+const button=document.getElementById("submitBtn");
+
+form.addEventListener("submit", async(e)=>{
+
+e.preventDefault();
+
+const name=document.getElementById("name").value;
+
+const phone=document.getElementById("phone").value;
+
+const username=document.getElementById("username").value;
+
+const postLink=document.getElementById("postLink").value;
+
+const request=document.getElementById("request").value;
+
+const commentCount=document.getElementById("commentCount").value;
+
+/* VALIDATION */
+
+if(phone.length !== 10){
+
+alert("Enter Valid 10 Digit Mobile Number");
+
+return;
+
+}
+
+if(selectedItems.length===0){
+
+alert("Please Select Followers Or Likes");
+
+return;
+
+}
+
+if(selectedAction==="Comment"){
+
+if(commentCount < 10 || commentCount > 50){
+
+alert("Comment Count Must Be Between 10 To 50");
+
+return;
+
+}
+
+}
+
+/* TOTAL PRICE */
+
+let total=0;
+
+selectedItems.forEach(i=>{
+
+total += parseInt(i.price);
+
+});
+
+/* BUTTON LOADING */
+
+button.disabled=true;
+
+button.innerHTML="⏳ Please Wait...";
+
+/* SAVE FIREBASE */
+
+try{
+
+await addDoc(collection(db,"users"),{
+
+name:name,
+
+phone:phone,
+
+username:username,
+
+postLink:postLink,
+
+request:request,
+
+selectedAction:selectedAction,
+
+commentCount:commentCount,
+
+selectedItems:selectedItems,
+
+totalPrice:"₹"+total,
+
+time:new Date()
+
+});
+
+/* SUCCESS */
+
+setTimeout(()=>{
+
+let selectedText="";
+
+selectedItems.forEach(i=>{
+
+selectedText += `${i.item} - ₹${i.price}<br>`;
+
+});
+
+success.style.display="block";
+
+success.innerHTML=`
+
+✅ Order Placed Successfully <br><br>
+
+${selectedText}
+
+💰 Total Price : ₹${total} <br><br>
+
+📩 Send Message To <br>
+
+@k._.dharani_vel_8
+
+`;
+
+/* AUTO CLEAR */
+
+form.reset();
+
+cards.forEach(c=>c.classList.remove("selected"));
+
+selectedItems=[];
+
+commentBox.style.display="none";
+
+/* RESET BUTTON */
+
+button.disabled=false;
+
+button.innerHTML="🚀 SUBMIT ORDER";
+
+/* HIDE SUCCESS */
+
+setTimeout(()=>{
+
+success.style.display="none";
+
+},5000);
+
+},2000);
+
+}catch(error){
+
+alert("Error : "+error);
+
+button.disabled=false;
+
+button.innerHTML="🚀 SUBMIT ORDER";
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
